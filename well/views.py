@@ -9,7 +9,7 @@ def home(request):
 def login_view(request):
     """View function for handling user login."""
     if request.method == 'POST':
-        # Extract username and password from POST data
+        # Extract username and password
         username = request.POST['username']
         password = request.POST['password']
         # Authenticate user
@@ -22,5 +22,5 @@ def login_view(request):
             # Handle authentication failure
             error_message = "Invalid username or password. Please try again."
             return render(request, 'login.html', {'error_message': error_message})
-    # Render the login form
+    # Render the login form (GET request)
     return render(request, 'login.html')
