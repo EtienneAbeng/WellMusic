@@ -1,3 +1,4 @@
+/* Styles for the navigation bar */
 .navbar {
     background-color: #333;
     overflow: hidden;
@@ -19,4 +20,60 @@
 
 .navbar a.right {
     float: right;
+}
+
+/* General styles for forms */
+form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Styles for the login page */
+#login-form {
+  background-color: #f9f9f9;
+}
+
+/* Styles for the signup page */
+#signup-form {
+  background-color: #f2f2f2;
+}
+
+/* Styles for the logout page */
+#logout-form {
+  background-color: #e6e6e6;
 }
