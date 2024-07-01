@@ -1,10 +1,8 @@
-# well/views.py
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
+from .forms import CustomUserCreationForm
 
 def home(request):
     """View function for rendering the home page."""
@@ -36,7 +34,7 @@ def signup_view(request):
     """View function for handling user signup."""
     if request.method == 'POST':
         # Process the signup form if it's a POST request
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             # Save the new user
             form.save()
@@ -48,5 +46,5 @@ def signup_view(request):
             return redirect('home')
     else:
         # Display a blank signup form for GET requests
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
