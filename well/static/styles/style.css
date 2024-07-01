@@ -63,6 +63,20 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
+/* Styles for paragraphs outside of forms */
+p {
+  font-size: 1.2em;
+  color: #333;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Reset styles for anchor tags inside paragraphs */
+p a {
+  font-size: 1em;
+  color: #007bff;
+}
+
 /* Styles for the login page */
 #login-form {
   background-color: #f9f9f9;
