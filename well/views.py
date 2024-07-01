@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import CustomUser
-from .forms import CustomUserCreationForm
+from .models import CustomUser, Music
+from .forms import CustomUserCreationForm, MusicForm
 
 def home(request):
     """View function for rendering the home page."""
@@ -48,3 +48,23 @@ def signup_view(request):
         # Display a blank signup form for GET requests
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def upload_music(request):
+    """View function for handling music upload."""
+    if request.method == 'POST':
+        form = MusicForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Create a new music instance but don't save it yet
+            music = form.save(commit=False)
+            # Assign the current logged-in user as the uploader
+            music.uploaded_by = request.user
+            music.save()
+            return redirect('home')
+    else:
+        form = MusicForm()
+    return render(request, 'upload_music.html', {'form': form})
+
+def list_music(request):
+    """View function for listing user's uploaded music."""
+    musics = Music.objects.filter(uploaded_by=request.user)
+    return render(request, 'list_music.html', {'musics': musics})
