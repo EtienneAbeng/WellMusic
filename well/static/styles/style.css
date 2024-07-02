@@ -24,70 +24,70 @@
 
 /* General styles for forms */
 form {
-width: 300px;
-margin: 0 auto;
-padding: 20px;
-border: 1px solid #ccc;
-border-radius: 5px;
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 label {
-display: block;
-margin-bottom: 5px;
-font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 input[type="text"],
 input[type="password"] {
-width: 100%;
-padding: 10px;
-margin-bottom: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 input[type="submit"] {
-width: 100%;
-padding: 10px;
-background-color: #4CAF50;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-font-weight: bold;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 input[type="submit"]:hover {
-background-color: #45a049;
+  background-color: #45a049;
 }
 
 /* Styles for paragraphs outside of forms */
 p {
-font-size: 1.2em;
-color: #333;
-text-align: center;
-padding: 10px;
+  font-size: 1.2em;
+  color: #333;
+  text-align: center;
+  padding: 10px;
 }
 
 /* Reset styles for anchor tags inside paragraphs */
 p a {
-font-size: 1em;
-color: #007bff;
+  font-size: 1em;
+  color: #007bff;
 }
 
 /* Styles for the login page */
 #login-form {
-background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 /* Styles for the signup page */
 #signup-form {
-background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 /* Styles for the logout page */
 #logout-form {
-background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
