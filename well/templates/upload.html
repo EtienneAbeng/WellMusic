@@ -2,6 +2,10 @@
 
 {% block title %}Upload Song{% endblock %}
 
+{% block navbar_authenticated %}
+    <a href="{% url 'logout' %}" class="right">Logout</a>
+{% endblock navbar_authenticated %}
+
 {% block content %}
   <h2>Upload a new song</h2>
   <form method="post" enctype="multipart/form-data">

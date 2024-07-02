@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import CustomUser
-from .forms import CustomUserCreationForm, SongForm, Song
+from .forms import CustomUserCreationForm, SongForm
+from .models import CustomUser, Song
 
 def home(request):
     """View function for rendering the home page."""
@@ -48,12 +49,7 @@ def signup_view(request):
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
-def player(request):
-    """View function for rendering the player page."""
-    if not request.user.is_authenticated:
-        return redirect('login')
-    return render(request, 'player.html')
-
+@login_required
 def upload_song(request):
     if request.method == 'POST':
         form = SongForm(request.POST, request.FILES)
@@ -61,10 +57,17 @@ def upload_song(request):
             song = form.save(commit=False)
             song.user = request.user
             song.save()
+            messages.success(request, 'Song uploaded successfully.')
             return redirect('home')
     else:
         form = SongForm()
     return render(request, 'upload.html', {'form': form})
+
+def player(request):
+    """View function for rendering the player page."""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return render(request, 'player.html')
 
 def search(request):
     query = request.GET.get('q')

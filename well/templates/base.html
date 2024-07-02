@@ -11,6 +11,7 @@
         {% if request.user.is_authenticated %}
             {% block navbar_authenticated %}
                 <a href="{% url 'player' %}" class="right">Player</a>
+                <a href="{% url 'upload_song' %}" class="right">Upload</a>
                 <a href="{% url 'logout' %}" class="right">Logout</a>
             {% endblock navbar_authenticated %}
         {% else %}
