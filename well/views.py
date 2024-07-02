@@ -9,7 +9,6 @@ def home(request):
     return render(request, 'home.html')
 
 def login_view(request):
-    """View function for handling user login."""
     if request.method == 'POST':
         # Extract username and password from POST data
         username = request.POST['username']
@@ -19,7 +18,7 @@ def login_view(request):
         if user is not None:
             # If user is authenticated, log them in and redirect to home page
             login(request, user)
-            return redirect('home')
+            return redirect('home')  # Rediriger vers la page d'accueil
         else:
             # If authentication fails, display error message
             messages.error(request, 'Invalid username or password.')
@@ -43,7 +42,7 @@ def signup_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('home')
+            return redirect('home')  # Rediriger vers la page d'accueil
     else:
         # Display a blank signup form for GET requests
         form = CustomUserCreationForm()
