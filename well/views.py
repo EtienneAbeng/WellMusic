@@ -63,16 +63,16 @@ def upload_song(request):
         form = SongForm()
     return render(request, 'upload.html', {'form': form})
 
+@login_required
 def player(request):
     """View function for rendering the player page."""
-    if not request.user.is_authenticated:
-        return redirect('login')
-    return render(request, 'player.html')
+    songs = Song.objects.filter(user=request.user)
+    return render(request, 'player.html', {'songs': songs})
 
 def search(request):
     query = request.GET.get('q')
     if query:
-        songs = Song.objects.filter(title__icontains=query)
+        songs = Song.objects.filter(title__icontains=query, user=request.user)
     else:
         songs = []
     return render(request, 'player.html', {'songs': songs})
