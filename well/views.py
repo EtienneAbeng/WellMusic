@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import CustomUser, Music
-from .forms import CustomUserCreationForm, MusicForm
+from .models import CustomUser
+from .forms import CustomUserCreationForm
 
 def home(request):
     """View function for rendering the home page."""
@@ -19,11 +19,11 @@ def login_view(request):
         if user is not None:
             # If user is authenticated, log them in and redirect to home page
             login(request, user)
-            return redirect('login')
+            return redirect('home')
         else:
             # If authentication fails, display error message
             messages.error(request, 'Invalid username or password.')
-    return render(request, 'home.html')
+    return render(request, 'login.html')
 
 def logout_view(request):
     """View function for handling user logout."""
@@ -48,38 +48,3 @@ def signup_view(request):
         # Display a blank signup form for GET requests
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
-
-def upload_music(request):
-    """View function for handling music upload."""
-    if request.method == 'POST':
-        form = MusicForm(request.POST, request.FILES)
-        if form.is_valid():
-            # Create a new music instance but don't save it yet
-            music = form.save(commit=False)
-            # Assign the current logged-in user as the uploader
-            music.uploaded_by = request.user
-            music.save()
-            return redirect('home')
-    else:
-        form = MusicForm()
-    return render(request, 'upload_music.html', {'form': form})
-
-def list_music(request):
-    """View function for listing user's uploaded music."""
-    musics = Music.objects.filter(uploaded_by=request.user)
-    return render(request, 'list_music.html', {'musics': musics})
-
-def search_music(request):
-    query = request.GET.get('q')
-    musics = Music.objects.filter(title__icontains=query, user=request.user)
-    return render(request, 'search_music.html', {'musics': musics})
-
-def player(request):
-    # Gestion de la recherche
-    query = request.GET.get('q')
-    if query:
-        musics = Music.objects.filter(title__icontains=query, user=request.user)
-    else:
-        musics = Music.objects.filter(user=request.user)
-    
-    return render(request, 'player.html', {'musics': musics})
