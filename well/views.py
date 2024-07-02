@@ -18,7 +18,7 @@ def login_view(request):
         if user is not None:
             # If user is authenticated, log them in and redirect to home page
             login(request, user)
-            return redirect('home')  # Rediriger vers la page d'accueil
+            return redirect('home')
         else:
             # If authentication fails, display error message
             messages.error(request, 'Invalid username or password.')
@@ -42,12 +42,17 @@ def signup_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('home')  # Rediriger vers la page d'accueil
+            return redirect('home')
     else:
         # Display a blank signup form for GET requests
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
 def player(request):
+    """View function for rendering the player page."""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return render(request, 'player.html')
+
     """View function for rendering the player page."""
     return render(request, 'player.html')
