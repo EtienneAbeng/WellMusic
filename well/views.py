@@ -47,3 +47,7 @@ def signup_view(request):
         # Display a blank signup form for GET requests
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def player(request):
+    """View function for rendering the player page."""
+    return render(request, 'player.html')
