@@ -1,9 +1,7 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.conf import settings
 
-# Custom user manager extending BaseUserManager
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
         """Create and return a regular user with the given username, email, and password."""
@@ -23,25 +21,13 @@ class CustomUserManager(BaseUserManager):
         
         return self.create_user(username, email, password, **extra_fields)
 
-# Custom user model extending AbstractUser with additional fields
 class CustomUser(AbstractUser):
     """Custom user model extending AbstractUser with additional fields."""
     age = models.IntegerField(null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True)
     email = models.EmailField(_('email address'), unique=True)
 
-    objects = CustomUserManager()  # Using the custom user manager for managing objects
+    objects = CustomUserManager()
 
     def __str__(self):
-        return self.username  # String representation of the object (username)
-
-# Model for storing music files
-class Music(models.Model):
-    """Model for storing music files."""
-    title = models.CharField(max_length=255)
-    file = models.FileField(upload_to='music/')
-    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Relationship to the user who uploaded it
-    uploaded_at = models.DateTimeField(auto_now_add=True)  # Date and time of upload
-
-    def __str__(self):
-        return self.title  # String representation of the object (title of the music)
+        return self.username
