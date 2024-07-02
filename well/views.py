@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import CustomUser
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, SongForm, Song
 
 def home(request):
     """View function for rendering the home page."""
@@ -54,5 +54,22 @@ def player(request):
         return redirect('login')
     return render(request, 'player.html')
 
-    """View function for rendering the player page."""
-    return render(request, 'player.html')
+def upload_song(request):
+    if request.method == 'POST':
+        form = SongForm(request.POST, request.FILES)
+        if form.is_valid():
+            song = form.save(commit=False)
+            song.user = request.user
+            song.save()
+            return redirect('home')
+    else:
+        form = SongForm()
+    return render(request, 'upload.html', {'form': form})
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        songs = Song.objects.filter(title__icontains=query)
+    else:
+        songs = []
+    return render(request, 'player.html', {'songs': songs})
