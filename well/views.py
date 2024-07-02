@@ -19,11 +19,11 @@ def login_view(request):
         if user is not None:
             # If user is authenticated, log them in and redirect to home page
             login(request, user)
-            return redirect('home')
+            return redirect('login')
         else:
             # If authentication fails, display error message
             messages.error(request, 'Invalid username or password.')
-    return render(request, 'login.html')
+    return render(request, 'home.html')
 
 def logout_view(request):
     """View function for handling user logout."""
@@ -68,3 +68,18 @@ def list_music(request):
     """View function for listing user's uploaded music."""
     musics = Music.objects.filter(uploaded_by=request.user)
     return render(request, 'list_music.html', {'musics': musics})
+
+def search_music(request):
+    query = request.GET.get('q')
+    musics = Music.objects.filter(title__icontains=query, user=request.user)
+    return render(request, 'search_music.html', {'musics': musics})
+
+def player(request):
+    # Gestion de la recherche
+    query = request.GET.get('q')
+    if query:
+        musics = Music.objects.filter(title__icontains=query, user=request.user)
+    else:
+        musics = Music.objects.filter(user=request.user)
+    
+    return render(request, 'player.html', {'musics': musics})
