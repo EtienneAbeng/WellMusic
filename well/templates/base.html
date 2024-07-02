@@ -8,6 +8,7 @@
 <body>
     <div class="navbar">
         <a href="{% url 'home' %}">Well</a>
+        <a href="{% url 'player' %}" class="right">Player</a>  <!-- Ajout du lien Player -->
         {% if request.user.is_authenticated %}
             <a href="{% url 'logout' %}" class="right">Logout</a>
         {% else %}
