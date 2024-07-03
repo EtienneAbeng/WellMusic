@@ -9,77 +9,90 @@
 {% endblock navbar_authenticated %}
 
 {% block content %}
-    <h1>My Music</h1>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">My Music</h1>
 
-    <form method="GET" action="{% url 'search' %}">
-        <input type="text" name="q" placeholder="Search songs...">
-        <button type="submit">Search</button>
-    </form>
-
-    <!-- Display player even if no songs are found -->
-    <div class="audio-player">
-        <audio id="audio-player" controls>
-            <source src="" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="audio-controls">
-            <button onclick="playAudio()">Play</button>
-            <button onclick="pauseAudio()">Pause</button>
-            <button onclick="fastForwardAudio()">Fast Forward</button>
-            <button onclick="rewindAudio()">Rewind</button>
-            <button onclick="stopAudio()">Stop</button>
-        </div>
-    </div>
-
-    {% if songs %}
-        {% for song in songs %}
-            <div class="song-item">
-                <h2>{{ song.title }}</h2>
-                <audio id="audio-{{ song.id }}" controls>
-                    <source src="{{ song.audio_file.url }}" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <div class="audio-controls">
-                    <button onclick="playAudio('{{ song.id }}')">Play</button>
-                    <button onclick="pauseAudio('{{ song.id }}')">Pause</button>
-                    <button onclick="fastForwardAudio('{{ song.id }}')">Fast Forward</button>
-                    <button onclick="rewindAudio('{{ song.id }}')">Rewind</button>
-                    <button onclick="stopAudio('{{ song.id }}')">Stop</button>
-                </div>
+        <form method="GET" action="{% url 'search' %}" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search songs...">
+                <button type="submit" class="btn btn-primary">Search</button>
             </div>
-        {% endfor %}
-    {% else %}
-        <p>No songs found.</p>
-    {% endif %}
+        </form>
+
+        {% if songs %}
+            <div class="song-list">
+                {% for song in songs %}
+                    <div class="song-item mb-4">
+                        <h2>{{ song.title }}</h2>
+                        <audio id="audio-{{ song.id }}" controls style="width: 50%;">
+                            <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-controls mt-3">
+                            <button onclick="playAudio('{{ song.id }}')" class="btn btn-success mx-2">Play</button>
+                            <button onclick="pauseAudio('{{ song.id }}')" class="btn btn-warning mx-2">Pause</button>
+                            <button onclick="fastForwardAudio('{{ song.id }}')" class="btn btn-info mx-2">Fast Forward</button>
+                            <button onclick="rewindAudio('{{ song.id }}')" class="btn btn-info mx-2">Rewind</button>
+                            <button onclick="stopAudio('{{ song.id }}')" class="btn btn-danger mx-2">Stop</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center">No songs found.</p>
+        {% endif %}
+    </div>
 
     <style>
         /* Styles for the audio player */
         .audio-player {
-            margin-top: 20px;
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 0 auto;
+            max-width: 600px; /* Limiting the width for better visual balance */
         }
 
         audio {
             width: 100%;
             margin-top: 10px;
+            outline: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .audio-controls {
-            margin-top: 5px;
+            margin-top: 15px;
         }
 
-        .audio-controls button {
-            margin-right: 10px;
-            padding: 8px 12px;
+        .audio-controls .btn {
+            padding: 8px 16px;
             font-size: 14px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .audio-controls button:hover {
-            background-color: #45a049;
+        .audio-controls .btn:hover {
+            opacity: 0.8;
+        }
+
+        .song-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .song-item h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
         }
     </style>
 
