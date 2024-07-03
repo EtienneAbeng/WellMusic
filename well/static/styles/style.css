@@ -99,7 +99,7 @@ p a {
 
 /* New class for home page background */
 .home-bg {
-  background-image: url('../static/images/home_img.jpg');/* Adjust path to your image */
+  background-image: url('images/home_img.jpg'); /* Adjust path to your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -116,4 +116,10 @@ p a {
 .home-bg h1 {
   font-size: 3em; /* Larger font size for the title */
   margin-bottom: 20px; /* Bottom margin for the title */
+}
+
+/* Adjust the size of the image in the container */
+.container img {
+  width: 100%;
+  height: auto;
 }
