@@ -1,3 +1,8 @@
+/* Apply Helvetica font to the entire website */
+body {
+  font-family: 'Helvetica', sans-serif;
+}
+
 /* Styles for the navigation bar */
 .navbar {
   background-color: #333;
@@ -90,4 +95,25 @@ p a {
 /* Styles for the logout page */
 #logout-form {
   background-color: #e6e6e6;
+}
+
+/* New class for home page background */
+.home-bg {
+  background-image: url('../static/images/home_img.jpg');/* Adjust path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Adjust height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff; /* Text color for good contrast */
+  padding: 20px;
+}
+
+/* Additional styles for content within the home page background */
+.home-bg h1 {
+  font-size: 3em; /* Larger font size for the title */
+  margin-bottom: 20px; /* Bottom margin for the title */
 }
