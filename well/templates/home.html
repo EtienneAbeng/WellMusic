@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
+{% load static %} 
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h2>Welcome to Wellmusic!</h2>
+    <section class="home-bg">
+        <div class="hero-content">
+            <h1>Welcome to Wellmusic!</h1>
+            <p>Discover music like never before.</p>
+            <a href="{% url 'player' %}" class="btn btn-primary">Start Listening</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <img src="{% static 'images/home_img.jpg' %}" alt="Home Image">
+    </div>
 {% endblock %}
