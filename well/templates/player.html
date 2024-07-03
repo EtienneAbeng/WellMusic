@@ -24,16 +24,18 @@
                 {% for song in songs %}
                     <div class="song-item mb-4">
                         <h2>{{ song.title }}</h2>
-                        <audio id="audio-{{ song.id }}" controls style="width: 50%;">
-                            <source src="{{ song.audio_file.url }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                        <div class="audio-controls mt-3">
-                            <button onclick="playAudio('{{ song.id }}')" class="btn btn-success mx-2">Play</button>
-                            <button onclick="pauseAudio('{{ song.id }}')" class="btn btn-warning mx-2">Pause</button>
-                            <button onclick="fastForwardAudio('{{ song.id }}')" class="btn btn-info mx-2">Fast Forward</button>
-                            <button onclick="rewindAudio('{{ song.id }}')" class="btn btn-info mx-2">Rewind</button>
-                            <button onclick="stopAudio('{{ song.id }}')" class="btn btn-danger mx-2">Stop</button>
+                        <div class="audio-player">
+                            <audio id="audio-{{ song.id }}" controls>
+                                <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="audio-controls mt-3">
+                                <button onclick="playAudio('{{ song.id }}')" class="btn btn-success mx-2">Play</button>
+                                <button onclick="pauseAudio('{{ song.id }}')" class="btn btn-warning mx-2">Pause</button>
+                                <button onclick="fastForwardAudio('{{ song.id }}')" class="btn btn-info mx-2">Fast Forward</button>
+                                <button onclick="rewindAudio('{{ song.id }}')" class="btn btn-info mx-2">Rewind</button>
+                                <button onclick="stopAudio('{{ song.id }}')" class="btn btn-danger mx-2">Stop</button>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
