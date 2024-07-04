@@ -1,8 +1,3 @@
-/* Apply Helvetica font to the entire website */
-body {
-  font-family: 'Helvetica', sans-serif;
-}
-
 /* Styles for the navigation bar */
 .navbar {
   background-color: #333;
@@ -82,44 +77,75 @@ p a {
   color: #007bff;
 }
 
-/* Styles for the login page */
-#login-form {
-  background-color: #f9f9f9;
-}
-
-/* Styles for the signup page */
-#signup-form {
-  background-color: #f2f2f2;
-}
-
-/* Styles for the logout page */
-#logout-form {
-  background-color: #e6e6e6;
-}
-
-/* New class for home page background */
-.home-bg {
-  background-image: url('images/home_img.jpg'); /* Adjust path to your image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* Adjust height as needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff; /* Text color for good contrast */
+/* Updated styles for home page */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* Additional styles for content within the home page background */
-.home-bg h1 {
-  font-size: 3em; /* Larger font size for the title */
-  margin-bottom: 20px; /* Bottom margin for the title */
+#welcome-section {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Adjust the size of the image in the container */
-.container img {
+#features-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature {
   width: 100%;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.feature h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.feature img {
+  max-width: 100%;
   height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
