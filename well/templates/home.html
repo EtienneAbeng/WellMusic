@@ -1,18 +1,43 @@
 {% extends 'base.html' %}
-{% load static %} 
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <section class="home-bg">
-        <div class="hero-content">
-            <h1>Welcome to Wellmusic!</h1>
-            <p>Discover music like never before.</p>
-            <a href="{% url 'player' %}" class="btn btn-primary">Start Listening</a>
-        </div>
-    </section>
+    {% load static %}
 
     <div class="container">
-        <img src="{% static 'images/home_img.jpg' %}" alt="Home Image">
+        <section id="welcome-section">
+            <h2>Welcome to Wellmusic!</h2>
+            <p>Discover and enjoy music.</p>
+        </section>
+
+        <section id="features-section" class="flex-container">
+            <div class="feature">
+                <h3>Player</h3>
+                <p>Listen your music<a href="{% url 'player' %}" class="btn btn-primary">Go to Player</a></p>
+                <img src="{% static 'images/feature1.jpg' %}" alt="Feature Image 1">
+            </div>
+            <div class="feature">
+                <h3>Feature 2</h3>
+                <p>Uploads your music and then listen directly with the player <a href="{% url 'upload_song' %}" class="btn btn-secondary">Upload a Song</a></p>
+                <img src="{% static 'images/feature2.jpg' %}" alt="Feature Image 2">
+            </div>
+            <div class="feature">
+                <h3>Feature 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit, lectus in cursus vehicula, tortor magna ultrices justo, sed rutrum turpis risus vel lectus.</p>
+                <img src="{% static 'images/feature3.jpg' %}" alt="Feature Image 3">
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Wellmusic. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
 {% endblock %}
