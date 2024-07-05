@@ -75,3 +75,106 @@ footer {
   display: inline;
   margin: 0 10px;
 }
+
+#project-wrapper {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#project-container {
+  background: url('http://www.upsetmagazine.com/wp-content/uploads/2015/09/Bring-Me-The-Horizon_16.jpg');
+  background-size: cover;
+  background-position: top center;
+  color: white;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 3px 15px -1px rgba(0,0,0,0.5);
+}
+
+#overlay {
+  position: absolute;
+  height: calc(100% + 1px);
+  width: calc(100% + 1px);
+  z-index: 2;
+  background: -moz-linear-gradient(-45deg, #333333 0%, #222222 100%);
+  background: -webkit-linear-gradient(-45deg, #333333 0%,#222222 100%);
+  background: linear-gradient(135deg, #333333 0%,#222222 100%);
+  opacity: .85;
+}
+
+#content {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+#content h2 {
+  font-size: 1.3em;
+  margin: 35px 0 0 0;
+  font-weight: 600;
+}
+
+#content h3 {
+  margin: 7px 0 15px 0;
+  font-size: 0.9em;
+  opacity: .4;
+}
+
+#content input[type="range"] {
+  width: 100%;
+  height: 2px;
+  margin: 0 0 15px 0;
+  background: -moz-linear-gradient(left, #3498db 0%, #9b59b6 72%);
+  background: -webkit-linear-gradient(left, #3498db 0%,#9b59b6 72%);
+  background: linear-gradient(to right, #3498db 0%,#9b59b6 72%);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#content input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 8px;
+  width: 8px;
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+#controls {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls .column {
+  float: left;
+}
+
+#controls .column:nth-child(even) {
+  font-size: 1.3em;
+}
+
+#controls .column:nth-child(n+2):nth-child(-n+4) {
+  color: white !important;
+}
+
+#controls .column:nth-child(3) {
+  font-size: 2em;
+}
+
+#controls .column.active {
+  color: #9b59b6;
+}
+
+#controls .column i {
+  margin: 0 15px;
+  cursor: pointer;
+}
