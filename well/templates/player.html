@@ -15,26 +15,24 @@
 
         {% if songs %}
             <div class="song-list">
-                {% for song in songs %}
-                    <div class="song-item mb-4">
-                        <div class="audio-player">
-                            <div class="d-flex flex-column align-items-center">
-                                <h2>{{ song.title }}</h2>
-                                <audio id="audio-{{ song.id }}" controls>
-                                    <source src="{{ song.audio_file.url }}" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                                <div class="audio-controls mt-3">
-                                    <button onclick="playAudio('{{ song.id }}')" class="btn btn-success mx-2">Play</button>
-                                    <button onclick="pauseAudio('{{ song.id }}')" class="btn btn-warning mx-2">Pause</button>
-                                    <button onclick="fastForwardAudio('{{ song.id }}')" class="btn btn-info mx-2">Fast Forward</button>
-                                    <button onclick="rewindAudio('{{ song.id }}')" class="btn btn-info mx-2">Rewind</button>
-                                    <button onclick="stopAudio('{{ song.id }}')" class="btn btn-danger mx-2">Stop</button>
-                                </div>
+                <div id="project-wrapper">
+                    <div id="project-container">
+                        <div id="overlay"></div>
+                        <div id="content">
+                            <h2>{{ songs.0.title }}</h2>
+                            <h3>{{ songs.0.artist }}</h3>
+                            <input type="range" value="30" />
+                            <div id="controls">
+                                <div class="column"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                <div class="column"><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+                                <div class="column"><i class="fa fa-play play-btn fa-fw" aria-hidden="true"></i></div>
+                                <div class="column"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+                                <div class="column active"><i class="fa fa-random" aria-hidden="true"></i></div>
                             </div>
+                            <audio id="audio-player" src="{{ songs.0.audio_file.url }}" preload="metadata"></audio>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
         {% else %}
             <p class="text-center">No songs found.</p>
