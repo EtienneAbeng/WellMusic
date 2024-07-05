@@ -1,4 +1,3 @@
-/* Nouveau CSS */
 body {
   font-family: 'Raleway', sans-serif;
 }
@@ -29,7 +28,7 @@ body {
 }
 
 .feature {
-  background-color: #f7f7f7;
+  background-color: rgba(247, 247, 247, 0.3); /* Adjust the last value between 0 and 1 for desired opacity level */
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -51,7 +50,7 @@ body {
 
 .feature p {
   font-size: 1.1em;
-  color: #666;
+  color: #ddd;
 }
 
 .feature-icon-container {
@@ -288,4 +287,10 @@ body {
 #controls .column i {
   margin: 0 15px;
   cursor: pointer;
+}
+
+body.home-page {
+  background-image: url('../images/abstract_background_with_colourful_music_notes_design_2504.jpg');
+  background-size: cover;
+  background-position: center;
 }
