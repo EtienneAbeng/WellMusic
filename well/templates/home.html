@@ -4,40 +4,46 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <section id="welcome-section" class="text-center mb-4">
-            <h2>Welcome to Wellmusic!</h2>
-            <p>Discover and enjoy music.</p>
-        </section>
+<div class="container">
+  <section id="welcome-section" class="text-center mb-4">
+    <h2 class="text-primary">Welcome to Wellmusic!</h2>
+    <p class="text-secondary">Discover and enjoy music.</p>
+  </section>
 
-        <section id="features-section" class="row">
-            <div class="feature col-md-4 mb-4">
-                <h3>Player</h3>
-                <p>Listen to your music.</p>
-                <a href="{% url 'player' %}" class="btn btn-primary">Go to Player</a>
-                <img src="{% static 'images/feature1.jpg' %}" alt="Feature Image 1">
-            </div>
-            <div class="feature col-md-4 mb-4">
-                <h3>Upload Songs</h3>
-                <p>Upload your music and listen to it directly with the player.</p>
-                <a href="{% url 'upload_song' %}" class="btn btn-secondary">Upload a Song</a>
-                <img src="{% static 'images/feature2.jpg' %}" alt="Feature Image 2">
-            </div>
-            <div class="feature col-md-4 mb-4">
-                <h3>Feature 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit, lectus in cursus vehicula, tortor magna ultrices justo, sed rutrum turpis risus vel lectus.</p>
-                <img src="{% static 'images/feature3.jpg' %}" alt="Feature Image 3">
-            </div>
-        </section>
+  <section id="features-section" class="row">
+    <div class="feature col-md-4 mb-4">
+      <div class="feature-icon-container">
+        <i class="fas fa-music feature-icon"></i>
+      </div>
+      <h3>Player</h3>
+      <p>Listen to your music.</p>
+      <a href="{% url 'player' %}" class="btn btn-primary">Go to Player</a>
     </div>
-    <footer class="bg-dark text-white py-3">
-        <div class="container text-center">
-            <p>&copy; 2024 Wellmusic. All rights reserved.</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
-                <li class="list-inline-item"><a href="#" class="text-white">Terms of Service</a></li>
-                <li class="list-inline-item"><a href="#" class="text-white">Contact Us</a></li>
-            </ul>
-        </div>
-    </footer>
+    <div class="feature col-md-4 mb-4">
+      <div class="feature-icon-container">
+        <i class="fas fa-upload feature-icon"></i>
+      </div>
+      <h3>Upload Songs</h3>
+      <p>Upload your music and listen to it directly with the player.</p>
+      <a href="{% url 'upload_song' %}" class="btn btn-secondary">Upload a Song</a>
+    </div>
+    <div class="feature col-md-4 mb-4">
+      <div class="feature-icon-container">
+        <i class="fas fa-headphones-alt feature-icon"></i>
+      </div>
+      <h3>Feature 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit, lectus in cursus vehicula, tortor magna ultrices justo, sed rutrum turpis risus vel lectus.</p>
+    </div>
+  </section>
+</div>
+<footer class="bg-dark text-white py-3">
+  <div class="container text-center">
+    <p>&copy; 2024 Wellmusic. All rights reserved.</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
+      <li class="list-inline-item"><a href="#" class="text-white">Terms of Service</a></li>
+      <li class="list-inline-item"><a href="#" class="text-white">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
 {% endblock %}
