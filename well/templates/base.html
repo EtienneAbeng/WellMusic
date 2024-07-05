@@ -5,23 +5,22 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
+    <nav class="navbar">
         <a href="{% url 'home' %}" class="navbar-brand">Well</a>
         <div class="navbar-links">
             {% if request.user.is_authenticated %}
-                <a href="{% url 'player' %}" class="right">Player</a>
-                <a href="{% url 'upload_song' %}" class="right">Upload</a>
-                <a href="{% url 'logout' %}" class="right">Logout</a>
+                <a href="{% url 'player' %}" class="right"><i class="fas fa-music"></i> Player</a>
+                <a href="{% url 'upload_song' %}" class="right"><i class="fas fa-upload"></i> Upload</a>
+                <a href="{% url 'logout' %}" class="right"><i class="fas fa-sign-out-alt"></i> Logout</a>
             {% else %}
-                <a href="{% url 'login' %}" class="right">Login</a>
-                <a href="{% url 'signup' %}" class="right">Sign Up</a>
+                <a href="{% url 'login' %}" class="right"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="{% url 'signup' %}" class="right"><i class="fas fa-user-plus"></i> Sign Up</a>
             {% endif %}
         </div>
-    </div>
+    </nav>
     {% block content %}{% endblock %}
     <script src="{% static 'scripts/scripts.js' %}"></script>
 </body>
