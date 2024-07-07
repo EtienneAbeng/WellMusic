@@ -432,3 +432,18 @@ body.home-page {
   align-items: center;
   height: 100vh;
 }
+
+/* Added code for centering login and signup pages */
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form,
+.signup-form {
+  width: 300px;
+  margin: 0 auto;
+}
