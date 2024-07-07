@@ -1,33 +1,153 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 3.0em;
+}
+
+h3 {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: #ff5733;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff8c00;
+}
+
+/* Navbar */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background-color: #333;
+  padding: 0.1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.navbar a {
+.navbar-brand {
+  font-size: 2.5em;
   color: white;
   text-decoration: none;
-  margin: 0 10px;
-  padding: 10px;
-  font-size: 1em;
-  transition: color 0.3s ease, font-size 0.3s ease;
+  margin-left: 1rem;
+  font-weight: bold;
 }
 
-.navbar a:hover {
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+  background-color: transparent;
   color: #ff5733;
-  font-size: 1.1em;
 }
 
-.navbar a i {
-  margin-right: 5px;
+.navbar-nav a:active {
+  background-color: transparent;
+  color: #ff8c00;
 }
 
+.navbar-nav a.player {
+  font-size: 1.8em;
+}
 
+.navbar-toggler {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-right: 1rem;
+}
+
+.navbar-toggler-icon {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+    display: none;
+  }
+
+  .navbar-nav.show {
+    display: flex;
+  }
+
+  .navbar-nav a {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-nav a.player {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    margin: 0;
+  }
+}
 
 .feature {
   background-color: rgba(247, 247, 247, 0.3);
@@ -51,7 +171,7 @@
 }
 
 .feature p {
-  font-size: 1.1em;
+  font-size: 2em;
   color: #ddd;
 }
 
@@ -69,6 +189,16 @@
 .feature-icon {
   color: white;
   font-size: 2.5em;
+}
+
+.btn-primary,
+.btn-secondary {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -141,14 +271,13 @@ footer ul li a:hover {
 .signup-container,
 .upload-container,
 .login-container {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-/* CSS existant à conserver */
 body {
   font-family: Arial, sans-serif;
 }
@@ -196,7 +325,7 @@ body {
 }
 
 #project-container {
-  background: url('http://www.upsetmagazine.com/wp-content/uploads/2015/09/Bring-Me-The-Horizon_16.jpg');
+  background: url('http://www.upsetmagazine.com/wp-content/uploads/2015/09/Bring-Me-The-Horizon\_16.jpg');
   background-size: cover;
   background-position: top center;
   color: white;
@@ -206,7 +335,7 @@ body {
   z-index: 2;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0px 3px 15px -1px rgba(0,0,0,0.5);
+  box-shadow: 0px 3px 15px -1px rgba(0, 0, 0, 0.5);
 }
 
 #overlay {
@@ -295,4 +424,11 @@ body.home-page {
   background-image: url('../images/abstract_background_with_colourful_music_notes_design_2504.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
