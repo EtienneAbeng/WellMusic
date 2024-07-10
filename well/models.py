@@ -27,7 +27,7 @@ class CustomUser(AbstractUser):
     bio = models.TextField(max_length=500, blank=True)
     email = models.EmailField(_('email address'), unique=True)
 
-    objects = CustomUserManager()
+    objects: CustomUserManager = CustomUserManager()
 
     def __str__(self):
         return self.username
