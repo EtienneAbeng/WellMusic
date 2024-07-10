@@ -32,7 +32,6 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.username
     
-    
 class Song(models.Model):
     title = models.CharField(max_length=200)
     audio_file = models.FileField(upload_to='music/')
