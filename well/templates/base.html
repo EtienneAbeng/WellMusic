@@ -15,6 +15,7 @@
             {% if request.user.is_authenticated %}
                 <a href="{% url 'player' %}" class="right"><i class="fas fa-music"></i> Player</a>
                 <a href="{% url 'upload_song' %}" class="right"><i class="fas fa-upload"></i> Upload</a>
+                <a href="{% url 'songs' %}" class="right"><i class="fas fa-list"></i> Songs</a>
                 <a href="{% url 'logout' %}" class="right"><i class="fas fa-sign-out-alt"></i> Logout</a>
             {% else %}
                 <a href="{% url 'login' %}" class="right"><i class="fas fa-sign-in-alt"></i> Login</a>
