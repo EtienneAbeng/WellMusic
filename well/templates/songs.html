@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Songs{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">Available Songs</h1>
+
+        {% for song in songs %}
+            <div class="song-item">
+                <h2>{{ song.title }}</h2>
+                <div id="project-wrapper">
+                    <div id="project-container">
+                        <div id="overlay"></div>
+                        <div id="content">
+                            <h2>{{ song.title }}</h2>
+                            <h3>{{ song.artist }}</h3>
+                            <input type="range" value="30" />
+                            <div id="controls">
+                                <div class="column"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                                <div class="column"><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+                                <div class="column"><i class="fa fa-play play-btn fa-fw" aria-hidden="true" onclick="playAudio('{{ song.id }}')"></i></div>
+                                <div class="column"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+                                <div class="column active"><i class="fa fa-random" aria-hidden="true"></i></div>
+                            </div>
+                            <audio id="audio-{{ song.id }}" src="{{ song.audio_file.url }}" preload="metadata"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">No songs available.</p>
+        {% endfor %}
+    </div>
+    <script src="{% static 'scripts/scripts.js' %}"></script>
+{% endblock %}
