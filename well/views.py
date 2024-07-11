@@ -76,3 +76,7 @@ def search(request):
     else:
         songs = []
     return render(request, 'player.html', {'songs': songs})
+
+def songs(request):
+    songs = Song.objects.all()
+    return render(request, 'songs.html', {'songs': songs})
