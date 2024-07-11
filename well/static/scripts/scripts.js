@@ -10,12 +10,12 @@ function pauseAudio(songId) {
 
 function fastForwardAudio(songId) {
   var audio = document.getElementById('audio-' + songId);
-  audio.currentTime += 10; // Fast forward by 10 seconds
+  audio.currentTime += 10; 
 }
 
 function rewindAudio(songId) {
   var audio = document.getElementById('audio-' + songId);
-  audio.currentTime -= 10; // Rewind by 10 seconds
+  audio.currentTime -= 10; 
 }
 
 function stopAudio(songId) {
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Lecteur audio de la page player.html
 const audioPlayer = document.querySelector('#audio-player');
 const playBtn = document.querySelector('.play-btn');
 const controls = document.querySelector('#controls');
