@@ -10,12 +10,12 @@ function pauseAudio(songId) {
 
 function fastForwardAudio(songId) {
   var audio = document.getElementById('audio-' + songId);
-  audio.currentTime += 10;
+  audio.currentTime += 10; // Fast forward by 10 seconds
 }
 
 function rewindAudio(songId) {
   var audio = document.getElementById('audio-' + songId);
-  audio.currentTime -= 10;
+  audio.currentTime -= 10; // Rewind by 10 seconds
 }
 
 function stopAudio(songId) {
@@ -24,6 +24,7 @@ function stopAudio(songId) {
   audio.currentTime = 0;
 }
 
+// Ajoutez cet écouteur d'événement pour jouer la chanson sélectionnée dans la page songs.html
 document.addEventListener('DOMContentLoaded', function() {
   var songItems = document.querySelectorAll('.song-item');
   for (var i = 0; i < songItems.length; i++) {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Lecteur audio de la page player.html
 const audioPlayer = document.querySelector('#audio-player');
 const playBtn = document.querySelector('.play-btn');
 const controls = document.querySelector('#controls');
